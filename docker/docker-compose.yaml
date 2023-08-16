@@ -176,7 +176,7 @@ services:
 
   # Frontend web application.
   web:
-    build: ./web
+    build: ../web
     restart: always
     environment:
       EDITION: SELF_HOSTED
