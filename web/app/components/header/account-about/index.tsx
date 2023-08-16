@@ -67,26 +67,26 @@ export default function AccountAbout({
                 : t('common.about.nowAvailable', { version: langeniusVersionInfo.latest_version })
             }
           </div>
-          <div className='flex items-center'>
-            <Link
-              className={classNames(buttonClassName, 'mr-2')}
-              href={'https://github.com/langgenius/dify/releases'}
-              target='_blank'
-            >
-              {t('common.about.changeLog')}
-            </Link>
-            {
-              !isLatest && !IS_CE_EDITION && (
-                <Link
-                  className={classNames(buttonClassName, 'text-primary-600')}
-                  href={langeniusVersionInfo.release_notes}
-                  target='_blank'
-                >
-                  {t('common.about.updateNow')}
-                </Link>
-              )
-            }
-          </div>
+          {/* <div className='flex items-center'> */}
+          {/*   <Link */}
+          {/*     className={classNames(buttonClassName, 'mr-2')} */}
+          {/*     href={'https://github.com/langgenius/dify/releases'} */}
+          {/*     target='_blank' */}
+          {/*   > */}
+          {/*     {t('common.about.changeLog')} */}
+          {/*   </Link> */}
+          {/*   { */}
+          {/*     !isLatest && !IS_CE_EDITION && ( */}
+          {/*       <Link */}
+          {/*         className={classNames(buttonClassName, 'text-primary-600')} */}
+          {/*         href={langeniusVersionInfo.release_notes} */}
+          {/*         target='_blank' */}
+          {/*       > */}
+          {/*         {t('common.about.updateNow')} */}
+          {/*       </Link> */}
+          {/*     ) */}
+          {/*   } */}
+          {/* </div> */}
         </div>
       </div>
     </Modal>
