@@ -177,7 +177,6 @@ services:
   # Frontend web application.
   web:
     build: ./web
-    image: dify-web
     restart: always
     environment:
       EDITION: SELF_HOSTED
