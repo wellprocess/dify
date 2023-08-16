@@ -26,7 +26,7 @@ services:
       # The URL for Web APP api server, refers to the Web App base URL of WEB service if web app domain is different from
       # console or api domain.
       # example: http://udify.app
-      APP_API_URL: ''
+      APP_API_URL: 'http://totalgpt.jototech.cn:8090'
       # The URL for Web APP frontend, refers to the Web App base URL of WEB service if web app domain is different from
       # console or api domain.
       # example: http://udify.app
