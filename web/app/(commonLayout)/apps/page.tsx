@@ -21,8 +21,8 @@ const AppList = async () => {
         {/*  </a> */}
         {/* </p> */}
         <div className='flex items-center gap-2 mt-3'>
-          <a className={style.socialMediaLink} target='_blank' href='https://github.com/langgenius/dify'><span className={classNames(style.socialMediaIcon, style.githubIcon)} /></a>
-          <a className={style.socialMediaLink} target='_blank' href='https://discord.gg/FngNHpbcY7'><span className={classNames(style.socialMediaIcon, style.discordIcon)} /></a>
+          {/* <a className={style.socialMediaLink} target='_blank' href='https://github.com/langgenius/dify'><span className={classNames(style.socialMediaIcon, style.githubIcon)} /></a> */}
+          {/* <a className={style.socialMediaLink} target='_blank' href='https://discord.gg/FngNHpbcY7'><span className={classNames(style.socialMediaIcon, style.discordIcon)} /></a> */}
         </div>
       </footer>
     </div >
