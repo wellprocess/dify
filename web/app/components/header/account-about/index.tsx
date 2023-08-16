@@ -42,7 +42,7 @@ export default function AccountAbout({
             s['logo-icon'],
             'mx-auto mb-3 w-12 h-12 bg-white rounded-xl border-[0.5px] border-gray-200',
           )} />
-          <Dify className='mx-auto mb-2' />
+          {/* <Dify className='mx-auto mb-2' /> */}
           <div className='mb-3 text-center text-xs font-normal text-gray-500'>Version {langeniusVersionInfo?.current_version}</div>
           {/* <div className='mb-4 text-center text-xs font-normal text-gray-700'> */}
           {/*   <div>© 2023 LangGenius, Inc., Contributors.</div> */}
