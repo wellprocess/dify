@@ -93,17 +93,17 @@ export default function AppSelector() {
                         <div>{t('common.userProfile.settings')}</div>
                       </div>
                     </Menu.Item>
-                    <Menu.Item>
-                      <Link
-                        className={classNames(itemClassName, 'group justify-between')}
-                        href={
-                          locale === 'en' ? 'https://docs.dify.ai/' : `https://docs.dify.ai/v/${locale.toLowerCase()}/`
-                        }
-                        target='_blank'>
-                        <div>{t('common.userProfile.helpCenter')}</div>
-                        <ArrowUpRight className='hidden w-[14px] h-[14px] text-gray-500 group-hover:flex' />
-                      </Link>
-                    </Menu.Item>
+                    {/* <Menu.Item> */}
+                    {/*   <Link */}
+                    {/*     className={classNames(itemClassName, 'group justify-between')} */}
+                    {/*     href={ */}
+                    {/*       locale === 'en' ? 'https://docs.dify.ai/' : `https://docs.dify.ai/v/${locale.toLowerCase()}/` */}
+                    {/*     } */}
+                    {/*     target='_blank'> */}
+                    {/*     <div>{t('common.userProfile.helpCenter')}</div> */}
+                    {/*     <ArrowUpRight className='hidden w-[14px] h-[14px] text-gray-500 group-hover:flex' /> */}
+                    {/*   </Link> */}
+                    {/* </Menu.Item> */}
                     <Menu.Item>
                       <div className={classNames(itemClassName, 'justify-between')} onClick={() => setAboutVisible(true)}>
                         <div>{t('common.userProfile.about')}</div>
