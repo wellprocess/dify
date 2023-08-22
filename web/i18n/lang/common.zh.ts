@@ -23,9 +23,12 @@ const translation = {
     lineBreak: '换行',
     sure: '我确定',
     download: '下载',
+    delete: '删除',
+    settings: '设置',
     setup: '设置',
     getForFree: '免费获取',
     reload: '刷新',
+    ok: '好的',
   },
   placeholder: {
     input: '请输入',
@@ -35,9 +38,12 @@ const translation = {
     char: '个字符',
   },
   actionMsg: {
+    noModification: '暂无修改',
     modifiedSuccessfully: '修改成功',
     modificationFailed: '修改失败',
     copySuccessfully: '复制成功',
+    paySucceeded: '已支付成功',
+    payCancelled: '已取消支付',
   },
   model: {
     params: {

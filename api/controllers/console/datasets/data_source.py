@@ -3,7 +3,8 @@ import json
 
 from cachetools import TTLCache
 from flask import request, current_app
-from flask_login import login_required, current_user
+from flask_login import current_user
+from core.login.login import login_required
 from flask_restful import Resource, marshal_with, fields, reqparse, marshal
 from werkzeug.exceptions import NotFound
 
@@ -20,10 +21,6 @@ from services.dataset_service import DatasetService, DocumentService
 from tasks.document_indexing_sync_task import document_indexing_sync_task
 
 cache = TTLCache(maxsize=None, ttl=30)
-
-FILE_SIZE_LIMIT = 15 * 1024 * 1024  # 15MB
-ALLOWED_EXTENSIONS = ['txt', 'markdown', 'md', 'pdf', 'html', 'htm']
-PREVIEW_WORDS_LIMIT = 3000
 
 
 class DataSourceApi(Resource):
