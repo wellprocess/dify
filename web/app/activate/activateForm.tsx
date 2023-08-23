@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useContext } from 'use-context-selector'
 import { useTranslation } from 'react-i18next'
 import useSWR from 'swr'
@@ -45,15 +45,16 @@ const ActivateForm = () => {
   const [timezone, setTimezone] = useState('Asia/Shanghai')
   const [language, setLanguage] = useState('en-US')
   const [showSuccess, setShowSuccess] = useState(false)
-  const defaultLanguage = (navigator.language?.startsWith('zh') ? languageMaps['zh-Hans'] : languageMaps.en) || languageMaps.en
+  const defaultLanguage = useCallback(() => (window.navigator.language.startsWith('zh') ? languageMaps['zh-Hans'] : languageMaps.en) || languageMaps.en, [])
 
-  const showErrorMessage = (message: string) => {
+  const showErrorMessage = useCallback((message: string) => {
     Toast.notify({
       type: 'error',
       message,
     })
-  }
-  const valid = () => {
+  }, [])
+
+  const valid = useCallback(() => {
     if (!name.trim()) {
       showErrorMessage(t('login.error.nameEmpty'))
       return false
@@ -66,9 +67,9 @@ const ActivateForm = () => {
       showErrorMessage(t('login.error.passwordInvalid'))
 
     return true
-  }
+  }, [name, password, showErrorMessage, t])
 
-  const handleActivate = async () => {
+  const handleActivate = useCallback(async () => {
     if (!valid())
       return
     try {
@@ -84,13 +85,13 @@ const ActivateForm = () => {
           timezone,
         },
       })
-      setLocaleOnClient(language.startsWith('en') ? 'en' : 'zh-Hans')
+      setLocaleOnClient(language.startsWith('en') ? 'en' : 'zh-Hans', false)
       setShowSuccess(true)
     }
     catch {
       recheck()
     }
-  }
+  }, [email, language, name, password, recheck, setLocaleOnClient, timezone, token, valid, workspaceID])
 
   return (
     <div className={
@@ -169,7 +170,7 @@ const ActivateForm = () => {
                 </label>
                 <div className="relative mt-1 rounded-md shadow-sm">
                   <SimpleSelect
-                    defaultValue={defaultLanguage}
+                    defaultValue={defaultLanguage()}
                     items={languages}
                     onSelect={(item) => {
                       setLanguage(item.value as string)
