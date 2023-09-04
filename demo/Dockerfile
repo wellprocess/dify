@@ -7,4 +7,4 @@ COPY . /usr/share/nginx/html
 # 开启端口 80
 EXPOSE 80
 # 执行 nginx
-ENTRYPOINT ["/bin/sh", "./entrypoint.sh"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
