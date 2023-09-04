@@ -4,7 +4,7 @@ FROM nginx:alpine
 RUN rm -rf /usr/share/nginx/html/*
 # 复制新的静态文件至当下目录位置
 COPY . /usr/share/nginx/html
-# 开启端口 80
-EXPOSE 80
+# 开启端口 8000
+EXPOSE 8000
 # 执行 nginx
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
