@@ -1,3 +1,4 @@
+FROM base as production
 ENV PORT 3001
 
 WORKDIR /app/demo
