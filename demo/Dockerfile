@@ -1,3 +1,9 @@
+FROM base as packages
+WORKDIR /app/demo
+FROM base as builder
+WORKDIR /app/demo
+COPY --from=packages /app/demo/ .
+COPY . .
 FROM base as production
 ENV PORT 3001
 
