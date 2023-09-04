@@ -190,6 +190,12 @@ services:
       APP_API_URL: 'https://totalgpt.jototech.cn:8090'
       # The DSN for Sentry error reporting. If not set, Sentry error reporting will be disabled.
       SENTRY_DSN: ''
+  # Frontend demo application.
+  demo:
+    build: ../demo
+    restart: always
+    environment:
+      EDITION: SELF_HOSTED
 
   # The postgres database.
   db:
@@ -249,6 +255,7 @@ services:
     depends_on:
       - api
       - web
+      - demo
     ports:
       - "80:80"
       - "443:443"
