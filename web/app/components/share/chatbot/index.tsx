@@ -89,14 +89,13 @@ const Main: FC<IMainProps> = ({
   const [hasPinnedMore, setHasPinnedMore] = useState<boolean>(true)
 
   const onMoreLoaded = ({ data: conversations, has_more }: any) => {
-    has_more = false
     setHasMore(has_more)
     if (isClearConversationList) {
-      setConversationList(conversations)
+      // setConversationList(conversations)
       clearConversationListFalse()
     }
     else {
-      setConversationList([...conversationList, ...conversations])
+      // setConversationList([...conversationList, ...conversations])
     }
   }
 
