@@ -270,8 +270,7 @@ const Main: FC<IMainProps> = ({
         },
         plan: 'basic',
       }
-      // : fetchAppInfo(), fetchAllConversations(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
-      : fetchAppInfo(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
+      : fetchAppInfo(), fetchAllConversations(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
   }
 
   // init
@@ -310,8 +309,8 @@ const Main: FC<IMainProps> = ({
 
         // setConversationList(conversations as ConversationItem[])
 
-        if (isNotNewConversation)
-          setCurrConversationId(_conversationId, appId, false)
+        // if (isNotNewConversation)
+        //   setCurrConversationId(_conversationId, appId, false)
 
         setInited(true)
       }
