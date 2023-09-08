@@ -91,11 +91,11 @@ const Main: FC<IMainProps> = ({
   const onMoreLoaded = ({ data: conversations, has_more }: any) => {
     setHasMore(has_more)
     if (isClearConversationList) {
-      // setConversationList(conversations)
+      setConversationList(conversations)
       clearConversationListFalse()
     }
     else {
-      // setConversationList([...conversationList, ...conversations])
+      setConversationList([...conversationList, ...conversations])
     }
   }
 
@@ -270,7 +270,8 @@ const Main: FC<IMainProps> = ({
         },
         plan: 'basic',
       }
-      : fetchAppInfo(), fetchAllConversations(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
+      // : fetchAppInfo(), fetchAllConversations(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
+      : fetchAppInfo(), fetchAppParams(isInstalledApp, installedAppInfo?.id)])
   }
 
   // init
