@@ -41,6 +41,7 @@ export enum ProviderEnum {
   'chatglm' = 'chatglm',
   'xinference' = 'xinference',
   'openllm' = 'openllm',
+  'localai' = 'localai',
 }
 
 export type ProviderConfigItem = {
@@ -91,6 +92,7 @@ export type ProviderConfigModal = {
   icon: ReactElement
   defaultValue?: FormValue
   validateKeys?: string[] | ((v?: FormValue) => string[])
+  filterValue?: (v?: FormValue) => FormValue
   fields: Field[]
   link: {
     href: string

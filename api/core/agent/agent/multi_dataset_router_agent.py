@@ -1,3 +1,4 @@
+import json
 from typing import Tuple, List, Any, Union, Sequence, Optional, cast
 
 from langchain.agents import OpenAIFunctionsAgent, BaseSingleActionAgent
@@ -52,7 +53,11 @@ class MultiDatasetRouterAgent(OpenAIFunctionsAgent):
         elif len(self.tools) == 1:
             tool = next(iter(self.tools))
             tool = cast(DatasetRetrieverTool, tool)
-            rst = tool.run(tool_input={'dataset_id': tool.dataset_id, 'query': kwargs['input']})
+            rst = tool.run(tool_input={'query': kwargs['input']})
+            # output = ''
+            # rst_json = json.loads(rst)
+            # for item in rst_json:
+            #     output += f'{item["content"]}\n'
             return AgentFinish(return_values={"output": rst}, log=rst)
 
         if intermediate_steps:
@@ -60,7 +65,13 @@ class MultiDatasetRouterAgent(OpenAIFunctionsAgent):
             return AgentFinish(return_values={"output": observation}, log=observation)
 
         try:
-            return super().plan(intermediate_steps, callbacks, **kwargs)
+            agent_decision = super().plan(intermediate_steps, callbacks, **kwargs)
+            if isinstance(agent_decision, AgentAction):
+                tool_inputs = agent_decision.tool_input
+                if isinstance(tool_inputs, dict) and 'query' in tool_inputs:
+                    tool_inputs['query'] = kwargs['input']
+                    agent_decision.tool_input = tool_inputs
+            return agent_decision
         except Exception as e:
             new_exception = self.model_instance.handle_exceptions(e)
             raise new_exception
